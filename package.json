@@ -1,7 +1,13 @@
 {
   "name": "client",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "main.js",
   "author": "zfk",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "electron": "1.6.2"
+  },
+  "devDependencies": {
+    "electron-rebuild": "^1.5.7"
+  }
 }
