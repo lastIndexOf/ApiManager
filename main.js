@@ -5,7 +5,6 @@ const {
   ipcMain: ipc
 } = require('electron')
 
-const request = require('superagent')
 let win = null
 
 app.setName('Job Maps')
@@ -13,7 +12,7 @@ app.on('ready', createWindow)
 app.on('window-all-closed', () => {
   app.quit()
 })
-console.log(app.getLocale())
+console.log(app.dock)
 /*
   操作函数
 */
