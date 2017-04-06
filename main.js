@@ -5,24 +5,15 @@ const {
   ipcMain: ipc
 } = require('electron')
 
+const request = require('superagent')
 let win = null
 
+app.setName('Job Maps')
 app.on('ready', createWindow)
 app.on('window-all-closed', () => {
   app.quit()
 })
-app.on('before-quit', e => {
-  console.log(e)
-})
-app.on('browser-window-blur', (e, window) => {
-  console.log(`blur: ${ window }`)
-})
-app.on('browser-window-focus', (e, window) => {
-  console.log(`focus: ${ window }`)
-})
-app.on('browser-window-created', (e, window) => {
-  console.log(3)
-})
+console.log(app.getLocale())
 /*
   操作函数
 */

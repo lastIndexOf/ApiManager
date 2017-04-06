@@ -5,13 +5,22 @@
   "author": "zfk",
   "license": "MIT",
   "dependencies": {
-    "electron": "1.6.2"
+    "electron": "1.6.2",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "superagent": "^3.5.2"
   },
   "scripts": {
-  	"start": "electron .",
-  	"rebuild": "./node_modules/.bin/electron-rebuild"
+    "start": "electron .",
+    "rebuild": "./node_modules/.bin/electron-rebuild"
   },
   "devDependencies": {
-    "electron-rebuild": "^1.5.7"
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.24.0",
+    "babel-preset-react": "^6.23.0",
+    "babel-preset-stage-3": "^6.22.0",
+    "electron-rebuild": "^1.5.7",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2"
   }
 }
