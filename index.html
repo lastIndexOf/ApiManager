@@ -12,15 +12,6 @@
     document.write(process.versions.electron)</script>
   </body>
   <script>
-    const { ipcRenderer } = require('electron')
-
-    let alertOnlineStatus = function (e) {
-      ipcRenderer.send('online-status-changed', navigator.onLine ? 'online' : 'offline')
-    }
-
-    window.addEventListener('online', alertOnlineStatus)
-    window.addEventListener('offline', alertOnlineStatus)
     
-    alertOnlineStatus()
   </script>
 </html>
