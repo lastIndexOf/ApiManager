@@ -7,6 +7,10 @@
   "dependencies": {
     "electron": "1.6.2"
   },
+  "scripts": {
+  	"start": "electron .",
+  	"rebuild": "./node_modules/.bin/electron-rebuild"
+  },
   "devDependencies": {
     "electron-rebuild": "^1.5.7"
   }

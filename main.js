@@ -1,8 +1,10 @@
-const electron = require('electron')
+const { 
+  app, 
+  BrowserWindow,
+  ipcMain: ipc
+} = require('electron')
 
-const { app, BrowserWindow } = electron
-
-let win
+let win = null
 
 app.on('ready', createWindow)
 app.on('window-all-closed', () => {
@@ -11,6 +13,13 @@ app.on('window-all-closed', () => {
   }
 })
 
+ipc.on('online-status-changed', (e, status) => {
+  console.log(status)
+})
+
+/*
+  操作函数
+*/
 function createWindow() {
   win = new BrowserWindow({ width: 800, hgith: 600 })
 
