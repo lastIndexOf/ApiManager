@@ -1,15 +1,13 @@
-const { 
-  app, 
+const {
+  app,
   BrowserWindow,
-  globalShortcut,
-  ipcMain: ipc,
-  dialog,
-  clipboard,
-  session
+  Menu,
+  Tray
 } = require('electron')
 
-let win = null
-let child = null
+let win
+let content
+let appIcon
 
 app.setName('Job Maps')
 app.on('ready', createWindow)
@@ -17,58 +15,40 @@ app.on('window-all-closed', () => {
   app.quit()
 })
 
-ipc.on('cookie', (e, ...msgs) => {
-  session.defaultSession.cookies.set({
-    url: 'https://localhost.com',
-    name: 'name',
-    value: 'value'
-  }, err => {
-    if (err) console.error(err)
-    session.defaultSession.cookies.get({name: 'name'}, (err, cookies) => {
-      console.log(cookies)
-    })
-  })
-})
-/*
-  操作函数
-*/
-function createWindow() {
-  win = new BrowserWindow({ 
-    width: 800, 
-    hgith: 600, 
-    show: false,
+/**
+ * 操作函数
+ */
+function createWindow () {
+  win = new BrowserWindow({
+    width: 800,
+    height: 600,
     backgroundColor: '#ddd',
-    // autoHideMenuBar: true,
-    disableAutoHideCursor: true,
-    transparent: true
+    show: false
   })
-
-  child = new BrowserWindow({
-    width: 600,
-    height: 400,
-    parent: win,
-    dialog: true
-  })
-
   win.loadURL(`file://${ __dirname }/index.html`)
 
+  content = win.webContents  
+  nextHandle(content)
   win.openDevTools()
-
-  registerKeys()
-  win.once('ready-to-show', () => {
-    console.log(1)
+  win.on('ready-to-show', () => {
     win.show()
-  })
-  child.on('closed', () => {
-    child = null
   })
   win.on('closed', () => {
     win = null
   })
-}
+} 
 
-function registerKeys() {
-  globalShortcut.register('Ctrl+3', () => {
-    console.log(1)
+function nextHandle (content) {
+  content.on('cursor-changed', e => {
+    console.log(content.printToPDF)
   })
+  appIcon = new Tray('./logo1.png')
+  var contextMenu = Menu.buildFromTemplate([
+    { label: 'Item1', type: 'radio' },
+    { label: 'Item2', type: 'radio' },
+    { label: 'Item3', type: 'radio', checked: true },
+    { label: 'Item4', type: 'radio' }
+  ])
+  appIcon.setToolTip('This is my application.')
+  appIcon.setContextMenu(contextMenu)
 }

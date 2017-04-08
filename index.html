@@ -6,48 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
-    <h1>hello, world</h1>
-    we are use Node.js <script>document.write(process.version)</script>, chrome
-    <script>document.write(process.versions.chrome)</script>, electron <script>
-    document.write(process.versions.electron)</script>
-
-    <div class="wrapper">
-      <input type="text">
-    </div>
-  </body>
-  <script>
-    const { ipcRenderer, remote, clipboard } = require('electron')
+    <h1>hello, wrold</h1>
+    <a href="https://www.baidu.com" target="_blank">baidu</a>
     
-    ipcRenderer.send('cookie', 'ok')
-  </script>
-  <script>
-    const { Menu, MenuItem } = remote
-
-    let menu2 = new Menu()
-    menu2.append(new MenuItem ({ 
-      label: 'MenuItem1', 
-      click() {
-        console.log(ipcRenderer.sendSync('stat'))
-      }
-    }))
-    menu2.append(new MenuItem ({
-      label: 'MenuItem1',
-    }))
-    let menu = new Menu()
-    menu.append(new MenuItem ({ 
-      label: 'MenuItem1', 
-      click() {
-        console.log(ipcRenderer.sendSync('stat'))
-      }
-    }))
-    menu.append(new MenuItem ({
-      label: 'MenuItem2',
-      submenu: menu2
-    }))
-    Menu.setApplicationMenu(menu)
-    window.addEventListener('contextmenu', e => {
-      e.preventDefault()
-      menu.popup(remote.getCurrentWindow())
-    }, false)
-  </script>
+    <script>
+      
+    </script>
+  </body>
 </html>

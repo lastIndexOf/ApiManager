@@ -16,30 +16,6 @@
     "rebuild": "./node_modules/.bin/electron-rebuild"
   },
   "devDependencies": {
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-es2015": "^6.24.0",
-    "babel-preset-react": "^6.23.0",
-    "babel-preset-stage-3": "^6.22.0",
-    "babel-runtime": "^6.22.0",
-    "browser-sync": "^2.18.5",
-    "browserify": "^14.0.0",
-    "watchify": "^3.9.0",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.1",
-    "gulp-babel": "^6.1.2",
-    "gulp-changed": "^1.3.2",
-    "gulp-concat": "^2.6.1",
-    "gulp-debug": "^3.0.0",
-    "gulp-minify-css": "^1.2.4",
-    "gulp-notify": "^3.0.0",
-    "gulp-plumber": "^1.1.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-runtime": "^2.0.0",
-    "gulp-sourcemaps": "^2.4.0",
-    "gulp-stylus": "^2.6.0",
-    "gulp-uglify": "^2.0.1",
-    "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0",
     "electron-rebuild": "^1.5.7"
   }
 }
