@@ -30,7 +30,7 @@ function createWindow () {
   content = win.webContents  
   nextHandle(content)
   win.openDevTools()
-  win.on('ready-to-show', () => {
+  win.once('ready-to-show', () => {
     win.show()
   })
   win.on('closed', () => {
@@ -42,13 +42,4 @@ function nextHandle (content) {
   content.on('cursor-changed', e => {
     console.log(content.printToPDF)
   })
-  appIcon = new Tray('./logo1.png')
-  var contextMenu = Menu.buildFromTemplate([
-    { label: 'Item1', type: 'radio' },
-    { label: 'Item2', type: 'radio' },
-    { label: 'Item3', type: 'radio', checked: true },
-    { label: 'Item4', type: 'radio' }
-  ])
-  appIcon.setToolTip('This is my application.')
-  appIcon.setContextMenu(contextMenu)
 }
