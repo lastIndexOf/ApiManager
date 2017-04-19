@@ -1,6 +1,6 @@
 # courseDesign
 
-- 基于nodejs + electron + vue(全家桶) + mongodb 的大三下软件课设...
+- 基于nodejs + electron + vue(全家桶) + mongodb 的一个前后端Api管理工具...
 
 ```
 	git clone 'https://github.com/lastIndexOf/courseDesign.git
