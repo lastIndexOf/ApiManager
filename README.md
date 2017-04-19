@@ -13,6 +13,12 @@
 	
 	....
 
+	运行命令
+	yarn start
+
+	打包命令
+	yarn run build
+
 ```
 
 ![初始界面](./images/page1.png)
