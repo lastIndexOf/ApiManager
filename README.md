@@ -12,4 +12,7 @@
 	yarn install
 	
 	....
+
 ```
+
+![初始界面](../images/pae1.png)
