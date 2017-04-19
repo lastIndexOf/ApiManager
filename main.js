@@ -1,45 +1,32 @@
 const {
   app,
-  BrowserWindow,
-  Menu,
-  Tray
+  BrowserWindow
 } = require('electron')
 
 let win
-let content
-let appIcon
 
-app.setName('Job Maps')
 app.on('ready', createWindow)
 app.on('window-all-closed', () => {
   app.quit()
 })
 
-/**
- * 操作函数
- */
-function createWindow () {
+function createWindow() {
   win = new BrowserWindow({
-    width: 800,
+    title: 'Api 前后端管理工具',
+    width: 1000,
     height: 600,
-    backgroundColor: '#ddd',
+    autoHideMenuBar: true,
+    transparent: true,
+    webPreferences: {},
     show: false
   })
-  win.loadURL(`file://${ __dirname }/index.html`)
 
-  content = win.webContents  
-  nextHandle(content)
-  win.openDevTools()
-  win.once('ready-to-show', () => {
+  win.loadURL('http://localhost:8080')
+
+  win.on('ready-to-show', () => {
     win.show()
   })
   win.on('closed', () => {
     win = null
-  })
-} 
-
-function nextHandle (content) {
-  content.on('cursor-changed', e => {
-    console.log(content.printToPDF)
   })
 }

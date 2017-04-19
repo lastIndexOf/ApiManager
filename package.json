@@ -5,11 +5,7 @@
   "author": "zfk",
   "license": "MIT",
   "dependencies": {
-    "electron": "1.6.2",
-    "superagent": "^3.5.2",
-    "vue": "^2.2.6",
-    "vue-router": "^2.3.1",
-    "vuex": "^2.2.1"
+    "electron": "1.6.2"
   },
   "scripts": {
     "start": "electron .",
