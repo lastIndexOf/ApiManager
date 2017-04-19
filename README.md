@@ -15,4 +15,4 @@
 
 ```
 
-![初始界面](./images/pae1.png)
+![初始界面](https://github.com/lastIndexOf/courseDesign/tree/master/images/page1.png)
