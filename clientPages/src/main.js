@@ -3,9 +3,11 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from './store'
 
 Vue.config.productionTip = false
 
+import './assets/styles/family.css'
 import './assets/styles/reset.css'
 import './assets/styles/fonts/iconfont.css'
 import 'sweetalert2/dist/sweetalert2.min.css'
@@ -14,6 +16,7 @@ import 'sweetalert2/dist/sweetalert2.min.css'
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: { App }
 })

@@ -23,6 +23,7 @@
 import moment from 'moment'
 import anime from 'animejs'
 import swal from 'sweetalert2'
+import { mapMutations } from 'vuex'
 
 export default {
   data() {
@@ -57,21 +58,41 @@ export default {
       }, 1000)
     },
     showTime(e, type=0) {
+      const self = this
+
       let time = type === 0
         ? this.curt
         : this.currentTime.now
+
+      this.beBlur()
       swal({
         text: `现在的时间(戳)是${ time }`,
         timer: 2000
+      }).then(() => {
+        self.cancelBlur()
+      }).catch(msg => {
+        self.cancelBlur()
       })
     },
     setting() {
+      const self = this
+
+      this.beBlur()
       swal({
         text: '暂不支持设置',
         timer: 1500,
         type: 'warning'
+      }).then(() => {
+        self.cancelBlur()
+      }).catch(msg => {
+        self.cancelBlur()
       })
-    }
+    },
+    ...mapMutations([
+      'back',
+      'beBlur',
+      'cancelBlur'
+    ])
   },
   created() {
     this._initTime()

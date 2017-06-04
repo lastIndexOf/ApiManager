@@ -4,7 +4,8 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 import home from '../components/home/home'
-import addnew from '../components/new/new'
+// import addnew from '../components/new/new'
+const addnew = r => require.ensure([], () => r(require('../components/new/new')), 'addnew')
 
 let router = new Router({
   routes: [
@@ -14,7 +15,7 @@ let router = new Router({
       children: [
         {
           path: 'new',
-          component: addnew
+          component: resolve => require(['../components/new/new'], resolve)
         }
       ]
     }

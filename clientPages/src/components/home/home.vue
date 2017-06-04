@@ -11,13 +11,13 @@
         </div>
         <div class="content">
           <div class="icon-wrapper" >
-            <i class="iconfont icon-chakanwendangjilu"></i>
+            <i class="iconfont icon-chakanwendangjilu" @click.stop="enter(2, $event)"></i>
           </div>
           <p class="desc">查看Api文档</p>
         </div>
         <div class="content">
           <div class="icon-wrapper">
-            <i class="iconfont icon-zaixian"></i>
+            <i class="iconfont icon-zaixian" @click.stop="enter(3, $event)"></i>
           </div>
           <p class="desc">online测试</p>
         </div>
@@ -38,12 +38,16 @@
 import anime from 'animejs'
 import homeHeader from '../homeheader/homeheader' 
 import router from '../../router/index'
+import { mapMutations, mapState } from 'vuex'
 
 export default {
   data () {
-    return {
-      isBlur: false
-    }
+    return {}
+  },
+  computed: {
+    ...mapState([
+      'isBlur'
+    ])
   },
   methods: {
     enter(type, e) {
@@ -57,7 +61,7 @@ export default {
         case 2:
         case 3:
         case 4:
-          route = 'local'
+          route = 'new'
           break
       }
 
@@ -68,21 +72,23 @@ export default {
         easing: 'easeInQuart',
         duration: 500,
         complete(anime) {
-          self.isBlur = true
           router.push(`/home/${ route }`)
           let timer = setTimeout(() => {
             e.target.parentNode.parentNode.style.opacity = 1
             e.target.parentNode.parentNode.style.transform = ''
             clearTimeout(timer)
           }, 400)
+
+          self.$nextTick(() => {
+            self.beBlur()
+          })
         }
       })
     },
-    cancelBlur() {
-      setTimeout(() => {
-        this.isBlur = false
-      }, 400)
-    }
+    ...mapMutations([
+      'beBlur',
+      'cancelBlur'
+    ])
   },
   components: { homeHeader }
 }
@@ -101,7 +107,7 @@ export default {
 
 #home
   .main-content
-    transition filter .2s
+    transition filter .6s
     &.filter
       -webkit-filter blur(10px)
     margin-top 180px
