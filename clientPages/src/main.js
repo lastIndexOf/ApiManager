@@ -12,6 +12,7 @@ import './assets/styles/reset.css'
 import './assets/styles/fonts/iconfont.css'
 import 'sweetalert2/dist/sweetalert2.min.css'
 
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

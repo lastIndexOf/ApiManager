@@ -24,7 +24,7 @@ export default {
   },
   methods: {
     addNewDoc() {
-      
+      ipcRenderer.send('create-new-doc', this.docTitle)
     }
   }
 }

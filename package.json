@@ -12,7 +12,6 @@
     "rebuild": "./node_modules/.bin/electron-rebuild"
   },
   "devDependencies": {
-    "electron-rebuild": "^1.5.7",
-    "mongoose": "^4.10.4"
+    "electron-rebuild": "^1.5.7"
   }
 }

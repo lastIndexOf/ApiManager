@@ -16,6 +16,10 @@ let router = new Router({
         {
           path: 'new',
           component: resolve => require(['../components/new/new'], resolve)
+        },
+        {
+          path: 'sign',
+          component: resolve => require(['../components/sign/sign'], resolve)
         }
       ]
     }
